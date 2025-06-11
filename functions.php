@@ -4,10 +4,18 @@
  */
 
 function esparta_enqueue_styles() {
-    wp_enqueue_style( 'parent-style', get_template_directory_uri() . '/style.css' );
-    wp_enqueue_style( 'child-style', get_stylesheet_directory_uri() . '/style.css', array('parent-style') );
+    // Parent theme
+    wp_enqueue_style('parent-style', get_template_directory_uri() . '/style.css');
+
+    // Child theme, con prioridad
+    wp_enqueue_style(
+        'child-style',
+        get_stylesheet_directory_uri() . '/style.css',
+        array('parent-style', 'elementor-frontend'), // Espera a que Elementor cargue
+        filemtime(get_stylesheet_directory() . '/style.css')
+    );
 }
-add_action( 'wp_enqueue_scripts', 'esparta_enqueue_styles' );
+add_action('wp_enqueue_scripts', 'esparta_enqueue_styles', 20);
 
 // Desacopla estilos/scripts innecesarios de WordPress
 function espartadigital_optimize_assets() {

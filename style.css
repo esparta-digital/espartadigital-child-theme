@@ -11,3 +11,27 @@
  Tags:         clean, accessibility-ready
  Text Domain:  espartadigital-child
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+body,
+body.elementor-default,
+body.elementor-kit,
+.elementor *,
+.elementor-widget,
+.elementor p,
+.elementor a,
+.elementor span,
+.elementor li {
+	font-family: "Montserrat", sans-serif;
+}
+
+
+.elementor h1,
+.elementor h2,
+.elementor h3,
+.elementor h4,
+.elementor h5,
+.elementor h6 {
+	  font-family: "Host Grotesk", sans-serif !important;
+}
